@@ -1,4 +1,4 @@
-# codecraft
+## Codecraft
 
 This is a mean stack based learning platform ideal to be hosted in colleges. The features of the site have been designed to provide an overall learning experience to the students, where they learn individually through content, and interact with other students through blogs and discussions. 
 
