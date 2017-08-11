@@ -1,0 +1,13 @@
+<div class="blogs container">
+  <div class="page-header">
+      <h2>Recent Questions</h2>
+  </div>
+  <div *ngIf="dataAvailable">
+    <app-question-list [questionList] = "questionList" [questionCount]="questionCount" [currentPage]="currentPage" [currentTag]="currentTag"></app-question-list>
+  </div>
+  <div class="btn-controls">
+    <button  [ngClass]="prevBtn()" (click)="prevPage()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Prev</button>
+    <span>Page {{currentPage}}</span>
+    <button  [ngClass]="nextBtn()" (click)="nextPage()">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div  *ngFor='let blog of blogList' class="blog-div row">
+  <h4><a [routerLink] = "['/blog', blog._id]">{{blog.heading}}</a></h4>
+  <p class='col-sm-4'>By: <a [routerLink] = "['/users', blog.username]">{{blog.username}}</a></p>
+  <div class="col-sm-4">
+      <p>
+        Tags: <span *ngFor='let tag of blog.tags'><a [routerLink] = "['/blogs']" [queryParams] = "{ tag: tag, pn: 0 }">{{tag}},  </a></span>
+      </p>
+  </div>
+  <p class="col-sm-4">
+    Written On: {{ blog.modifiedDate | date }}
+  </p>
+</div>

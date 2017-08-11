@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Add {{type}}</h2>
+      </div>
+      <div class="col-sm-6 section-btn">
+        <button *ngIf="addEbook" (click)="addEbookFunc()" class="btn btn-primary btn-sm "><i class="fa fa-book" aria-hidden="true"></i> Add Ebook</button>
+        <button *ngIf="addVideo" (click)="addVideoFunc()" class="btn btn-primary btn-sm"><i class="fa fa-video-camera" aria-hidden="true"></i> Add Video</button>
+      </div>
+    </div>
+  </div>
+  <form>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" [(ngModel)] = "name" name="name" id="name" required/>
+    </div>
+    <h4>Content</h4>
+    <app-tiny-editor (onEditorContentChange) = "tinyResponce($event)"></app-tiny-editor>
+    <button (click)="submitContent()" class="btn btn-sm btn-primary submit-btn" type="submit">Submit</button>
+  </form>
+</div>

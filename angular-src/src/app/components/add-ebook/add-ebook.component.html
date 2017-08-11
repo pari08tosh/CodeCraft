@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="page-header">
+    <h2>Add Ebook</h2>
+  </div>
+  <form ngNoForm action="http://{{serverAddress}}/ebooks/addEbook" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name of the ebook</label>
+      <input type="text" class="form-control" name="name" id="name" required/>
+    </div>
+    <input type="text" type="hidden" class="form-control" [(ngModel)]="topic" name="topic" id="topic" required/>
+    <input type="text" type="hidden" class="form-control" [(ngModel)]="subtopic" name="subtopic" id="subtopic" required/>
+    <div class="form-group">
+      <label for="body">About the book</label>
+      <textarea name="body" type="text" class="form-control" id="body"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="ebook">Upload Ebook </label>
+      <input type="file" class="form-control" name="ebook" id="ebook" required/>
+    </div>
+    <div class="form-group">
+      <label for="image">Cover Image</label>
+      <input type="file" class="form-control" name="image" id="imge" required/>
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+  </form>
+</div>

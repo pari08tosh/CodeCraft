@@ -1,0 +1,64 @@
+<div *ngIf="!isAdmin" class="container">
+  <div class="page-header">
+    <h2>Contact Us</h2>
+  </div>
+  <form (submit)="sendFeedback()">
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" class="form-control" [(ngModel)] = "subject" name="subject" id="subject" required/>
+    </div>
+    <div class="form-group">
+      <label for="body">Your Message</label>
+      <textarea name="body" type="text" class="form-control" [(ngModel)]="body" required></textarea>
+    </div>
+    <button class="btn btn-primary btn-sm" type="submit">Post</button>
+  </form>
+  <div *ngIf="userFeedbackList.length !== 0" class="user-feedback-list">
+    <h3 style="text-align: center">Past Months Feedbacks</h3>
+    <div *ngFor="let feedback of userFeedbackList" class="user-feedback">
+      <h4 style="text-align: center">{{feedback.subject}}</h4>
+      <p style="text-align: center">{{feedback.date | date}}</p>
+      <p>
+        {{feedback.body}}
+      </p>
+      <h5><strong>Reply - </strong></h5>
+      <p>
+        {{feedback.reply}}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isAdmin" class="container">
+  <div class="page-header">
+    <h2>Feedbacks</h2>
+  </div>
+  <div class="feedback" *ngFor='let feedback of feedbackList'>
+    <h4 style="text-align: center">{{feedback.subject}}</h4>
+    <div style="text-align: center" class="row">
+      <div class="col-sm-6">
+        <p>
+          By - <a [routerLink] = "['/users/'+feedback.username]">{{feedback.username}}</a>
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <p>{{ feedback.date | date }}</p>
+      </div>
+    </div>
+    <p>
+        {{feedback.body}}
+    </p>
+    <h5><strong>Reply - </strong></h5>
+    <div *ngIf="(feedback.reply === 'No Reply')" class="reply">
+      <form (submit)="submitFeedback(feedback, reply.value)" class="reply-form">
+        <textarea class="form-control" #reply name="reply"></textarea>
+        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-reply" aria-hidden="true"></i> Reply</button>
+      </form>
+    </div>
+    <div *ngIf="!(feedback.reply === 'No Reply')" class="replyMessage">
+      <p>
+        {{feedback.reply}}
+      </p>
+    </div>
+  </div>
+</div>

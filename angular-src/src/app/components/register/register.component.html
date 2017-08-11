@@ -1,0 +1,30 @@
+<form class="register-form" (submit) = "submitRegisterForm()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" required [(ngModel)] = "name" id="name" name="name">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" class="form-control" [(ngModel)] = "email" id="user-email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" [(ngModel)] = "username" id="username" name="username" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" [(ngModel)] = "password" name="password" required>
+  </div>
+  <div class="form-group">
+    <label for="securityQuestion">Security Question</label>
+    <input type="text" class="form-control" id="securityQuestion" [(ngModel)] = "securityQuestion" name="securityQuestion" required>
+    <p>
+      This question would be used to recover your password in case you forget it.
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="securityAns">Answer</label>
+    <input type="security-ans" class="form-control" id="securityAns" [(ngModel)] = "securityAns" name="securityAns" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>

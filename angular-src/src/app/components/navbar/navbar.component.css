@@ -1,0 +1,67 @@
+
+.navbar {
+  margin: 0px 0px 50px 0px;
+  border-radius: 0px;
+}
+.container-fluid {
+  margin: 0px 10px;
+}
+.navbar-brand {
+  position: relative;
+  top: -12px;
+}
+
+.search-btn {
+  background-color: transparent;
+  background-image: none;
+}
+
+.search-input{
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  color: white;
+}
+
+.search-btn {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+.search-btn:hover, .search-btn:active, .search-btn:visited {
+    background-color: rgba(#98300d, 0.82) !important;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+
+.open > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 300ms ease, visibility 300ms ease;
+  -moz-transition: opacity 300ms ease, visibility 300ms ease;
+  -o-transition: opacity 300ms ease, visibility 300ms ease;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+.notification-div {
+  padding: 0px;
+  margin: 3px 3px;
+  border-bottom: solid 1px rgba(85, 85, 85, 0.31);
+}
+
+.notification-div h5 {
+  width: 20vw;
+  white-space: pre-line;
+}

@@ -1,0 +1,45 @@
+form {
+  position: relative;
+  left: 10vw;
+  width: 60vw;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  margin: 5px 0px;
+  width: 60vw;
+}
+
+label {
+  font-size: 105%;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.feedback {
+  padding: 10px;
+  border-bottom: 1px solid rgba(125, 125, 125, 0.27);
+}
+
+.reply-form {
+  position: relative;
+  left: 0px;
+}
+
+p {
+  font-size: 110%;
+}
+
+.user-feedback-list {
+  padding: 20px;
+}
+
+.user-feedback {
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(125, 125, 125, 0.27);
+}

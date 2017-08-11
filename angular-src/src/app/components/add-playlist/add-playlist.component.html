@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="page-header">
+    <h2>Add Playlist</h2>
+  </div>
+  <form (submit)="addPlaylist()">
+    <div class="form-group">
+      <label for="name">Name of the playlist</label>
+      <input type="text" class="form-control" [(ngModel)]="name" name="name" id="name" required/>
+    </div>
+    <div class="form-group">
+      <label for="body">Description</label>
+      <textarea name="description" type="text" [(ngModel)]="description" class="form-control" id="description"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm">Add playlist</button>
+  </form>
+</div>

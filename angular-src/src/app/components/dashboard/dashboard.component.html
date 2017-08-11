@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="page-header">
+    <h2>Dashboard</h2>
+  </div>
+  <div class="row">
+    <div class="col-sm-9">
+      <button class="btn btn-primary btn-sm" *ngIf="editRights" [routerLink]="['/addFeed']"><i class="fa fa-plus" aria-hidden="true"></i> Add Feed</button>
+      <div class="feed" *ngFor="let feed of feedList">
+        <div class="deleteBtn">
+          <button class="btn btn-danger btn-sm" *ngIf="editRights" (click)="deleteFeed(feed)" [routerLink]="['/addFeed']"> Delete Feed</button>
+        </div>
+        <h3 class="page-header">{{ feed.heading }}</h3>
+        <p [innerHtml]="feed.body | tinyInput"></p>
+        <h6>{{feed.date | date}}</h6>
+      </div>
+    </div>
+    <div class="col-sm-3 latest">
+      <div class="question-div">
+        <h4 style="text-align: center">Latest Questions</h4>
+        <div class="question" *ngFor="let question of questionList">
+          <p><a [routerLink] = "['/question', question._id ]" [innerHtml] = "question.question | tinyInput"></a></p>
+        </div>
+      </div>
+      <div class="blogs-div">
+        <h4 style="text-align: center">Latest Blogs</h4>
+        <div class="blogs" *ngFor="let blog of blogList">
+          <p><a [routerLink] = "['/blog', blog._id]">{{blog.heading}}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

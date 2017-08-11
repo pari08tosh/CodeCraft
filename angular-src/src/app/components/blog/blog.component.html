@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 backbtn">
+      <a class="btn btn-primary btn-sm" [routerLink] = "['/blogs']" [queryParams] = "{ pn: 0 }" ><i class="fa fa-arrow-left" aria-hidden="true"></i> All Blogs</a>
+    </div>
+    <div *ngIf="editable" class="col-xs-6 editbtn">
+      <a class="btn btn-primary btn-sm" [routerLink]="['/editBlog']" [queryParams] = "{ id: currentBlog._id }"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="blog container">
+  <div class="page-header">
+    <h3>{{currentBlog.heading}}</h3>
+    <div class="row">
+      <div class="col-sm-4">
+        <h5>
+          Written By - <a [routerLink] = "['/users', currentBlog.username ]">{{currentBlog.username}}</a>
+        </h5>
+      </div>
+      <div class="col-sm-4">
+        <h5>
+          Written On - {{currentBlog.modifiedDate | date }}
+        </h5>
+      </div>
+      <div class="col-sm-4">
+        <h5>
+        Tags:-  <span *ngFor = "let tag of currentBlog.tags"><a [routerLink] = "['/blogs']" [queryParams] = "{ tag: tag, pn: 0 }">{{tag}}  </a></span>
+      </h5>
+      </div>
+    </div>
+  </div>
+  <div class="blog-body" [innerHTML]="currentBlog.body | tinyInput">
+
+  </div>
+</div>
+
+<div class="container comments-div">
+  <div class="page-header">
+    <h3>Comments</h3>
+  </div>
+  <div *ngIf="loggedIn" class="write-comment">
+    <form class="comment-form" (submit)="addComment()">
+      <div class="form-group">
+        <label for="commentBody">{{username}}</label>
+        <textarea class="form-control" [(ngModel)]="commentBody" name="commentBody" placeholder="Write a comment"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Comment</button>
+    </form>
+  </div>
+  <br />
+  <div *ngFor="let comment of commentList" class="comment-div">
+    <h5>By <a [routerLink] = "['/users', comment.username ]">{{comment.username}}</a></h5>
+    <p>
+      {{comment.body}}
+    </p>
+    <h6>{{comment.date | date}}</h6>
+  </div>
+</div>

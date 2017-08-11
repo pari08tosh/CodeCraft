@@ -1,0 +1,22 @@
+.codeList {
+  padding: 10px;
+  border-bottom: 1px solid rgba(108, 108, 108, 0.37);
+}
+.col-sm-3 {
+  margin: 3px 0px 0px 0px;
+}
+
+.search-input {
+  margin: 10px;
+}
+
+.btn-controls {
+  margin: 20px 0px;
+}
+
+.btn-controls span {
+  margin: 20px 10px;
+}
+.user-keys {
+  font-weight: bold;
+}

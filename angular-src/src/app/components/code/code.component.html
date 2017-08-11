@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Code and Run</h2>
+      </div>
+      <div class="col-sm-6" style="text-align: right;">
+        <button class="btn btn-sm btn-primary search-btn" [routerLink] = "['/searchCodes']"><i class="fa fa-search" aria-hidden="true"></i> Search Codes</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9 codeArea">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="title">Title for Code:</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="title" placeholder="Also include topic of code" required>
+          </div>
+          <div class="col-sm-6">
+            <label for="language">Select Language:</label>
+            <select [(ngModel)]="language" class="form-control" name="language">
+              <option [value]="'c'">C (gcc 5.4)</option>
+              <option [value]="'cpp'">Cpp (g++ 5.4)</option>
+              <option [value]="'java'">Java (openjdk 1.8)</option>
+              <option [value]="'python2'">Python 2 (python 2.7)</option>
+              <option [value]="'python3'">Python 3 (python 3.5)</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="checkbox">
+          <p>If your code is working fine check the option below to save it to database.</p>
+          <label><input [(ngModel)] = "saveChecked" type="checkbox"> Save this code</label>
+        </div>
+        <div class="" *ngIf="saveChecked">
+          <p>
+            By default your code is visible to everyone. Mark it as private to keep it to yourself.
+          </p>
+          <label class="radio-inline"><input checked="checked" [(ngModel)]="privacy" type="radio" value="public" name="privacy">Make it Public</label>
+          <label class="radio-inline"><input [(ngModel)]="privacy" type="radio" value="private" name="privacy">Keep it Private</label>
+        </div>
+      </div>
+      <h4>Your Code</h4>
+      <app-code-editor [language]="language" [readOnly]="false" (onEditorContentChange) = "editorResponce($event)"></app-code-editor>
+      <br />
+      <div class="form-group">
+        <label for="input">Add Custom Input</label>
+        <textarea class="form-control" name="input" [(ngModel)]="userInput" id="" cols="30" rows="5"></textarea>
+      </div>
+      <button type="submit" (click)="submitCode()" class="btn btn-sm btn-primary"><i class="fa fa-cog" aria-hidden="true"></i> Run</button>
+
+      <div *ngIf="showSpinner" style="text-align: center; padding: 10px; color: #d34615">
+        <i class="fa fa-3x fa-spin fa-cog" aria-hidden="true"></i>
+        <h5>Running</h5>
+      </div>
+
+      <div class="output form-group" *ngIf="showOutput">
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="output">Output</label>
+          </div>
+          <div *ngIf="showRuntime" class="col-sm-6" style="text-align: center">
+            <strong>Runtime:</strong> {{runtime}}s
+          </div>
+        </div>
+        <textarea class="form-control" name="output" id="" cols="30" rows="10" [(ngModel)]="output"></textarea>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+
+      <div class="sidebar">
+        <h4 style="text-align: center">Recent Submissions</h4>
+        <div class="submission" *ngFor = "let submission of recentSubmissionsList">
+          <p>
+            <a [routerLink] = "['/submission', submission._id]">{{submission.title}}</a>
+          </p>
+          <h5>Language: {{submission.language}}</h5>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <h4 style="text-align: center">Your Submissions</h4>
+        <div class="submission" *ngFor = "let submission of userSubmissionsList">
+          <p>
+            <a [routerLink] = "['/submission', submission._id]">{{submission.title}}</a>
+          </p>
+          <h5>Language: {{submission.language}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

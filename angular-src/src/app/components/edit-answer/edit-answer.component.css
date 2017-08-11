@@ -1,0 +1,9 @@
+.currentBody {
+  border-left: solid 2px #d34615;
+  padding: 10px 15px;
+  margin: 10px;
+}
+
+.page-header {
+  text-align: center;
+}

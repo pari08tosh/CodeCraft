@@ -1,0 +1,25 @@
+<script src="/assets/js/video.min.js"></script>
+<div class="container">
+  <h3 class="page-header">{{name}}</h3>
+  <div class="row">
+    <div class="col-sm-9">
+      <app-video-player [videoUrl]="videoUrl" [autoplay]="true"></app-video-player>
+    </div>
+    <div class="col-sm-3">
+      <div class="playlist-header">
+        <h4>Videos</h4>
+      </div>
+      <div class="list-group">
+        <a style="cursor: pointer;" *ngFor="let video of playlist.videos; let i = index" [ngClass] = "activeFunc(i)" [routerLink]="['/playlist', topic, subtopic, name, i]">
+          <h4><span class="index-number">{{i+1}}.</span> {{video.name}}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="description">
+    <h4>Description</h4>
+    <p>
+      {{playlist.description}}
+    </p>
+  </div>
+</div>

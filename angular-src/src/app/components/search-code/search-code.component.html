@@ -1,0 +1,31 @@
+<div class="container">
+  <h2 class="page-header">Find Codes</h2>
+  <form class="search-input">
+      <div class="form-group">
+        <label for="searchString">Search Codes</label>
+        <input type="text" class="form-control" [(ngModel)] = "searchString" id="searchString" name="searchString" placeholder="Search by title" required>
+      </div>
+      <a class="btn btn-sm btn-primary" [routerLink] = "['/searchCodes']" [queryParams] = "{ pn: 0, searchString: searchString }"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
+  </form>
+  <div *ngFor="let code of codeList" class="codeList">
+    <div>
+      <h4><a [routerLink] = "['/submission', code._id]">{{code.title}}</a></h4>
+      <div class="row">
+        <div class="col-sm-4">
+          <h5>Language: {{code.language}}</h5>
+        </div>
+        <div class="col-sm-4">
+          <h5>By: <a [routerLink] = "['/users', code.username ]">{{code.username}}</a> </h5>
+        </div>
+        <div class="col-sm-4">
+          <h5>Submitted On: {{code.date | date}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-controls">
+    <button  [ngClass]="prevBtn()" (click)="prevPage()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Prev</button>
+    <span>Page {{currentPage}}</span>
+    <button  [ngClass]="nextBtn()" (click)="nextPage()">Next <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+  </div>
+</div>

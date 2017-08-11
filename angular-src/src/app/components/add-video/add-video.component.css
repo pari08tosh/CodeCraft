@@ -1,0 +1,11 @@
+form {
+  position: relative;
+  left: 10vw;
+  width: 60vw;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  margin: 5px 0px;
+  width: 60vw;
+}

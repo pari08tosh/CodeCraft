@@ -1,0 +1,196 @@
+.jumbotron {
+  text-align: center;
+  color: white;
+  margin: 0px;
+  height: 100vh;
+  position: relative;
+  top: -50px;
+  background-image: url("/assets/images/home-banner.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  box-shadow: 0px 5px 10px #000;
+}
+
+.jumbotron .btn {
+  position: relative;
+  top: 40vh;
+  margin: 10px 30px 10px 20px;
+  width: 150px;
+  border: 2px solid white;
+  border-radius: 25px;
+  background-color: transparent;
+  transition: all .3s;
+}
+
+.jumbotron .btn:hover {
+  background-color: transparent;
+  border-color: rgba(210, 70, 21, 0.71);
+}
+
+.know-more-div {
+  position: relative;
+  top: 65vh;
+}
+
+.home-content  {
+  text-align: center;
+}
+
+.home-content h4 {
+  padding: 10px 20px;
+}
+
+.home-content .fa {
+  color: #d34615;
+}
+
+.together-section {
+  text-align: center;
+  background: linear-gradient(rgba(82, 80, 80, 0.6), rgba(82, 80, 80, 0.6)), url("/assets/images/coding2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding: 50px 50px;
+  margin: 0px 0px;
+  width: 100%;
+  min-height: 50vh;
+}
+
+.technology-section {
+  text-align: center;
+  margin: 50px 50px 0px 50px;
+}
+.editor-section {
+  text-align: center;
+  margin: 50px;
+}
+
+.technology-section h3 {
+  color: #d34615;
+}
+
+.player-section {
+  text-align: center;
+  margin: 50px;
+}
+
+
+.player-section h3 {
+  color: #d34615;
+  text-align: center;
+}
+
+.sources-section {
+  text-align: center;
+  margin: 50px;
+}
+
+
+.sources-section h3 {
+  color: #d34615;
+  text-align: center;
+}
+
+.team-section {
+  text-align: center;
+  margin: 50px;
+}
+
+
+.team-section h3 {
+  color: #d34615;
+  text-align: center;
+}
+
+.team-section img {
+  height: 25vh;
+}
+
+.team-section a {
+  text-decoration: none;
+  color: #333;
+}
+
+.team {
+  margin: 20px 0px 15px 0px;
+}
+
+.sources {
+  text-align: center;
+  padding: 20px;
+}
+
+.sources a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.sources a:hover{
+  color: #d34615;
+}
+
+.editor-section h3 {
+  color: #d34615;
+}
+
+.quote {
+  color: #d34615;
+}
+
+.stack-images {
+  display: flex;
+  justify-content: center;
+}
+
+.stack-images img {
+  height: 80px;
+  margin: 30px 30px;
+}
+
+p {
+  font-size: 120%;
+}
+
+.home-section {
+  margin: 50px 0px;
+}
+
+.end-div {
+  margin: 50px;
+}
+
+.fa-heart {
+  color: #d50606;
+}
+
+.fa-code {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+.introVideo h3 {
+  text-align: center;
+  color: #d34615;
+}
+
+.introVideo .col-sm-8 {
+  padding: 30px 5px 100px 5px;
+}
+
+.introVideo h4 {
+  padding: 20px;
+  text-align: center;
+}
+
+.profileLinks {
+  display: flex;
+  justify-content: center;
+}
+
+.profileLinks img {
+  height: 50px;
+  width: 50px;
+  margin: 0px 20px;
+}

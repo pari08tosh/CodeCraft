@@ -1,0 +1,184 @@
+
+<div class="jumbotron">
+  <a [routerLink] = "['/login']" class="btn btn-success">Login</a>
+  <a [routerLink] = "['/register']" class="btn btn-primary">Register</a>
+  <div class="know-more-div">
+    <h4>Know More</h4>
+    <h4><i class="fa fa-angle-double-down" aria-hidden="true"></i></h4>
+  </div>
+</div>
+
+<div class="container home-content">
+  <div class="opening-para home-section">
+    <p>Hi there! Welcome to Codecraft. Codecraft is an educational website intended to help students improve and develop their coding skills and learn various topics
+      related to computer science. We felt, the old codecraft was too limited in content and features. Also scalability was an issue due to technology barriers. Solving the above problems
+      we launch this site with robust technology, and new features to improve your learning experience.
+    </p>
+  </div>
+  <div class="home-section">
+    <div class="page-header quote">
+      <h3>What's New</h3>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <h1><i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i></h1>
+        <p>The learn section provides you with comprehensive content on various programming
+          launguages, data structures, algorithms and other topics related to computer science.
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <h1><i class="fa fa-comments fa-lg" aria-hidden="true"></i></h1>
+        <p>
+          The discuss section now gives you the power to interact with others and clear all the confusion and questions which you may have. It works something like the discuss platform on codechef and other coding websites.
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <h1><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></h1>
+        <p>
+          The site is not limited to only learning and discussion. We also have something for the ones who love to share their knowlege. The blog section allowes you to write on any topic that you would like to share with others.
+        </p>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-sm-4">
+        <h1><i class="fa fa-terminal fa-lg" aria-hidden="true"></i></h1>
+        <p>
+          Codecraft is armed with its own judge and code editor.
+          You can run, share and search code.
+          So go ahead, code your heart out and also share your submissions to help other students learn from you.
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <h1><i class="fa fa-bell fa-lg" aria-hidden="true"></i></h1>
+        <p>
+          The notification engine will give you regular updates on new content being added to the site.
+          You would also be notified about any comments on your blogs and codes, or answers on your questions.
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <h1><i class="fa fa-users fa-lg" aria-hidden="true"></i></h1>
+        <p>
+          Now you can now connect with other users of the website. The find people section allowes you to search poeple by their
+          names and their skills. You can visit profiles of users working with technologies you wish to learn.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="introVideo">
+    <h3 class="page-header">From the Code Stars</h3>
+    <h4>Here is an inspirational video from Code.org. Hear out what the best in the industry have to say about coding.</h4>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <app-video-player [videoUrl]="videoUrl"></app-video-player>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container together-section">
+  <div class="page-header">
+    <h3>"Alone we can do so little, together we can do so much."</h3>
+  </div>
+  <p>The site no longer reamains individualistic. Now you have the power to communicate and iteract with other users of the website. We encourage you to participate
+    as much as posiible in discussions and share your knowledge with blogs. Write and share codes in various languages for other students to refer and learn. Your enthusiasm and activity towards the site will help to improve the content and usability of codecraft.
+    Participation would not only help you, but also would help the students who would read your contributions in the future.
+  </p>
+</div>
+
+<div class="container-fluid technology-section">
+  <div class="page-header">
+    <h3>Technology Under The Hood</h3>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <img src="/assets/images/mean.png" class="img-responsive" />
+    </div>
+    <div class="col-sm-6" style="text-align: left">
+      <p>The site is built completly on the MEAN stack applying the MVC architecture. The acronym stands for MongoDB, Express, Angular and NodeJS.
+      The complete stack is based on only one launguage, Javascript. MongoDB, a NoSql database has been used to store the entire content of the site. Angular is a front-end javascript based framework used to create single page dynamic websites.
+      NodeJs, a javascript runtime has been used for writing the backend logic and routes. Express is the node web-applicaion framework used to configure the server.
+    </p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid editor-section">
+  <div class="page-header">
+  <h3>The Editor</h3>
+  </div>
+  <div class="row">
+    <div class="col-sm-6" style="text-align: left">
+      <p>The site uses TinyMCE editor for all its editing tasks. It is an open source WYSIWYG editor which works great on almost all platforms.
+        Do format your text while writing blogs or questions with the various options available on the editor. To add images, simply drag and drop images into the editor. Note:- Users will
+        require internet connection to view the images, as image upload is not supported at the moment.
+      </p>
+    </div>
+    <div class="col-sm-6">
+      <img src="/assets/images/tinymce.png" class="img-responsive" />
+    </div>
+  </div>
+</div>
+
+<div class="container player-section">
+  <div class="page-header">
+  <h3>The Player</h3>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <img src="/assets/images/Videogular.jpg" class="img-responsive" />
+    </div>
+    <div class="col-sm-6" style="text-align: left">
+      <p>
+        We have integrated the videogular HTML5 player for angular 2. It can be easily implemented in any angular project and has been configured
+        to your needs. We loved the player for its decent looks and the variety of options it provided. We have ensured that you get all the controls you need while watching videos.
+        Hope you have a great experience with this player.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container sources-section">
+  <div class="page-header">
+    <h3>Our Sources</h3>
+  </div>
+  <p>
+    This is the list of all the sources we have gathered our content from. Do visit these sites to get more information on the
+    topics listed in the site.
+  </p>
+  <div class="row">
+    <div class="col-sm-2 sources" *ngFor="let source of sourcesList">
+      <h4><a href="{{source.link}}" target="_blank">{{source.name}}</a></h4>
+    </div>
+  </div>
+</div>
+<!--<div class="container team-section">
+  <div class="page-header">
+    <h3>Our Team</h3>
+  </div>
+  <p>
+    Users of the site have been divided into three roles - Admin, Content Managers and Users. The admin has access to the raw database and all
+    routes of the site. The admin can assign Content Managers, who can add and edit content on the dashboard, and learn section of the site.
+  </p>
+  <div class="row">
+    <div class="col-sm-3 team" *ngFor="let member of teamList">
+      <a [routerLink] = "['/users', member.username]">
+        <img src="assets/images/avatars/{{member.avatarName}}" class="img-responsive img-thumbnail center-block avatar" />
+        <h4>{{member.name}}</h4>
+        <h4>{{member.role}}</h4>
+      </a>
+    </div>
+  </div>
+</div> -->
+<div class="container-fliud end-div">
+  <h2 style="text-align: center; color: #d34615">That's all folks! Happy Coding!</h2>
+</div>
+<div class="profileLinks">
+  <a  href="https://www.facebook.com/bitcodecraft" target="_blank"><img src="assets/images/facebook.png" title="Our Facebook Page"/></a>
+    <a href="#" target="_blank"><img src="assets/images/github.png" title="Github Repo" /></a>
+</div>
+
+<div class="container-fluid footer">
+  <h4><i class="fa fa-code" aria-hidden="true"></i> with <i class="fa fa-heart" aria-hidden="true"></i> by <a [routerLink] = "['/users', 'DE><TER']">DE><TER</a></h4>
+</div>

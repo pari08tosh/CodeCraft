@@ -1,0 +1,44 @@
+
+.playlist-header {
+  text-align: center;
+  border-bottom: 1px solid rgba(125, 125, 125, 0.27);
+}
+
+.videoList {
+    border: none;
+    margin: 5px 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.list-group {
+  height: 60vh;
+  overflow: auto;
+}
+
+.videoList:hover {
+  color: #d34615;
+}
+.index-number {
+  padding-right: 5px;
+}
+
+.active {
+  background-color: transparent;
+  color: #d34615;
+}
+.active:hover {
+  background-color: rgba(142, 142, 142, 0.14);
+}
+
+.description {
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.description p {
+  border-top: 1px solid rgba(125, 125, 125, 0.27);
+  padding: 10px;
+  margin: 10px;
+  font-size: 120%;
+}

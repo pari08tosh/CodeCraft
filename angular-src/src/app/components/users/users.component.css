@@ -1,0 +1,72 @@
+.blog-div {
+  margin: 10px;
+  border-bottom: 1px solid rgba(24, 24, 24, 0.43);
+}
+a {
+  color: rgba(#18bb9c, 0.63);
+  text-decoration: none;
+}
+a:hover {
+  color: #0f7d68;
+}
+.blog p {
+  margin: 30px 10px 30px 10px;
+  width: 80%;
+  font-size: 120%;
+}
+
+.editBtn {
+  text-align: right;
+}
+.contentManagerBtn {
+  text-align: right;
+}
+
+.page-header {
+  text-align: center;
+}
+
+.profile-key {
+  font-weight: bold;
+}
+
+
+.profileLinks {
+  display: flex;
+  justify-content: center;
+}
+.profileLinks img {
+  height: 50px;
+  width: 50px;
+  margin: 20px;
+}
+
+.imageUpload {
+  width: 30vw;
+}
+
+.editBtn {
+  text-align: right;
+}
+
+.avatar {
+  height: 45vh;
+  width: auto;
+}
+
+.avatar-div {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  position: relative;
+  top: 10vh;
+}
+
+.control-buttons {
+  text-align: center;
+}
+
+.control-buttons .btn {
+
+  margin: 20px;
+}

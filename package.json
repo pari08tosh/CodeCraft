@@ -1,0 +1,25 @@
+{
+  "name": "codecraft",
+  "version": "1.0.0",
+  "description": "MEAN Stack based learning platform",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "multer": "^1.3.0",
+    "passport": "*",
+    "passport-jwt": "*",
+    "please-wait": "0.0.5",
+    "request": "^2.81.0"
+  },
+  "author": "Paritosh Sharma",
+  "license": "ISC"
+}

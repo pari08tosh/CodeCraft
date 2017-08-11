@@ -1,0 +1,22 @@
+<vg-player class="embed-responsive embed-responsive-16by9" (onPlayerReady)="onPlayerReady($event)">
+  <vg-buffering></vg-buffering>
+  <vg-scrub-bar>
+        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+        <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+    </vg-scrub-bar>
+
+  <vg-controls [vgAutohide]="true">
+    <vg-play-pause></vg-play-pause>
+    <vg-time-display vgProperty="current" vgFormat="hh:mm:ss"></vg-time-display>
+    <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+    <vg-time-display vgProperty="total" vgFormat="hh:mm:ss"></vg-time-display>
+    <vg-playback-button></vg-playback-button>
+    <vg-mute></vg-mute>
+    <vg-volume></vg-volume>
+    <vg-fullscreen></vg-fullscreen>
+  </vg-controls>
+
+  <video [vgMedia]="media" #media class="embed-responsive-item" src="{{videoUrl}}" id="singleVideo" preload="auto">
+  </video>
+  <vg-overlay-play></vg-overlay-play>
+</vg-player>

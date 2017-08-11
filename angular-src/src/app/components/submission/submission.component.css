@@ -1,0 +1,25 @@
+.page-header {
+  text-align: center;
+}
+
+.col-sm-4 {
+  text-align: center;
+}
+
+.body {
+  margin-top: 50px;
+}
+
+.comments-div h3 {
+  text-align: left;
+}
+.comments-div .comment-div {
+  padding: 3px 10px;
+  margin: 5px 0px;
+  background-color: rgba(255, 153, 0, 0.33);
+  border-radius: 5px;
+  width: 75vw;
+}
+.write-comment {
+  width: 50vw;
+}

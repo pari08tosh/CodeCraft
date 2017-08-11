@@ -1,0 +1,61 @@
+<div class="container">
+    <form class="edit-profile-form" (submit)="submitForm()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.name" id="name" name="name" disabled required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.email" id="email" name="email" disabled required>
+      </div>
+      <div class="form-group">
+        <label for="batch">Batch</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.batch" id="batch" name="batch">
+      </div>
+      <div class="form-group">
+        <label for="branch">Branch</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.branch" id="branch" name="branch">
+      </div>
+      <div class="form-group">
+        <label for="about">About</label>
+        <textarea class="form-control" [(ngModel)]="user.about" id="about" name="about" placeholder="A line or two about yourself- more of a phrase than sentences"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="technologies">Technologies and Frameworks</label>
+        <textarea class="form-control" [(ngModel)]="user.technologies" id="technologies" name="technologies" placeholder="Tell us about the technologies you are famaliar with, your skillset, framsworks or launguages you work with. Eg. Web Development, NodeJs, Angular, Php, Bootstrap, C++, Java etc." ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="facebookLink">Facebook profile link</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.facebookLink" id="facebookLink" name="facebookLink">
+      </div>
+      <div class="form-group">
+        <label for="githubLink">Github profile link</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.githubLink" id="githubLink" name="githubLink">
+      </div>
+      <div class="form-group">
+        <label for="githubLink">LinkedIn profile link</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.linkedInLink" id="linkedInLink" name="linkedInLink">
+      </div>
+      <div class="form-group">
+        <label for="githubLink">Stackoverflow profile link</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.stackoverflowLink" id="stackoverflowLink" name="stackoverflowLink">
+      </div>
+      <div class="form-group">
+        <label for="spojLink">Spoj profile link</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.spojLink" id="spojLink" name="spojLink">
+      </div>
+      <div class="form-group">
+        <label for="hackerearthLink">HackerEarth profile link</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.hackerearthLink" id="hackerearthLink" name="hackerearthLink">
+      </div>
+      <div class="form-group">
+        <label for="codechefLink">Codechef profile link</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.codechefLink" id="codechefLink" name="codechefLink">
+      </div>
+      <div class="form-group">
+        <label for="codeforcesLink">Codeforces profile link</label>
+        <input type="text" class="form-control" [(ngModel)] = "user.codeforcesLink" id="codeforcesLink" name="codeforcesLink" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="page-header">
+    <h2>New Feed</h2>
+  </div>
+  <form>
+    <div class="form-group">
+      <label for="heading">Heading</label>
+      <input type="text" class="form-control" [(ngModel)] = "heading" name="heading" id="heading" required/>
+    </div>
+    <h4>Body</h4>
+    <app-tiny-editor (onEditorContentChange) = "tinyResponce($event)"></app-tiny-editor>
+    <button (click)="submitFeed()" class="btn btn-sm btn-primary submit-btn" type="submit">Submit</button>
+  </form>
+</div>

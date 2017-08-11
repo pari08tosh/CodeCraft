@@ -1,0 +1,22 @@
+<div class="container" >
+  <div class="page-header">
+    <h3 [innerHtml] = "question.question | tinyInput"></h3>
+    <div class="row">
+      <p class='col-sm-3'>Asked by <a [routerLink] = "['/users']" [queryParams] = "{ username: question.username }">{{question.username}}</a></p>
+      <div class="col-sm-3">
+          <p>
+            Tags:- <span *ngFor='let tag of question.tags'><a [routerLink] = "['/discuss']" [queryParams] = "{ tag: tag, pn: 0 }">{{tag}}  </a></span>
+          </p>
+      </div>
+      <p class="col-sm-3">
+        {{question.answers || 0}} answers
+      </p>
+      <p class="col-sm-3">
+        {{ question.modifiedDate | date }}
+      </p>
+    </div>
+  </div>
+  <h4>Your Answer</h4>
+  <app-tiny-editor (onEditorContentChange) = "tinyResponce($event)"></app-tiny-editor>
+  <button (click)="submitAnswer()" class="btn btn-sm btn-primary submit-btn" type="submit">Submit</button>
+</div>

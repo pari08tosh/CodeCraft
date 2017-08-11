@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Codecraft</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/assets/images/titlelogo.png">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/css/united.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/animate.css" />
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="load-screen">
+    <div class="load-content">
+      <img class="load-image" src="/assets/images/logo1.png" />
+      <div class="pre-load">
+        <script>
+          var quotes = [
+            'the bits are breeding',
+            'a few bits tried to escape, but we caught them',
+            'and dream of faster computers',
+            'while the satellite moves into position',
+            'the bits are flowing slowly today',
+            'the server needs ice cream'
+          ];
+          var x = Math.floor(Math.random() * 5);
+          document.write(`<h3 class="loading-quote">Please wait... ${ quotes[x] }</h3>`);
+        </script>
+        <div class="spinner">
+          <div class="rect1 rect"></div>
+          <div class="rect2 rect"></div>
+          <div class="rect3 rect"></div>
+          <div class="rect4 rect"></div>
+          <div class="rect5 rect"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/js/load.js"></script>
+  <div class="go-to-top-btn" title="Go To Top">
+    <i class="fa fa-circle fa-stack-1x fa-inverse"></i>
+    <i class="fa fa-arrow-circle-up fa-stack-1x" aria-hidden="true"></i>
+  </div>
+  <app-root></app-root>
+</body>
+
+</html>

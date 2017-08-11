@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="page-header">
+    <h2>Add Video</h2>
+  </div>
+  <div style="text-align: right">
+    <button (click)="addPlaylist()" class="btn btn-primary btn-sm"><i class="fa fa-list" aria-hidden="true"></i> Add Playlist</button>
+  </div>
+  <form ngNoForm action="http://{{serverAddress}}/playlists/addVideo" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name of the video</label>
+      <input type="text" class="form-control" name="name" id="name" required/>
+    </div>
+    <input type="text" type="hidden" class="form-control" [(ngModel)]="topic" name="topic" id="topic" required/>
+    <input type="text" type="hidden" class="form-control" [(ngModel)]="subtopic" name="subtopic" id="subtopic" required/>
+    <div class="form-group">
+      <label for="playlist">Select Playlist</label>
+      <select name="playlist">
+        <option selected disabled>Choose playlist</option>
+        <option *ngFor="let playlist of playlists" value="{{playlist.name}}">
+        {{playlist.name}}
+        </option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label for="video">Upload Video </label>
+      <input type="file" class="form-control" name="video" id="video" required/>
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+  </form>
+</div>

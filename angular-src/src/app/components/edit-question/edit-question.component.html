@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="page-header">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2>Edit Question</h2>
+      </div>
+      <div clas="col-xs-6" style="text-align: right;">
+        <button (click)="deleteQuestion()" class="btn btn-sm btn-danger delete-btn">{{deleteBtnText}}</button>
+      </div>
+    </div>
+  </div>
+  <form>
+    <h4>Note: Changes to the question should be such that the answers still remain applicable to the question. Edit only to make small changes or add new information.</h4>
+    <div class="form-group">
+      <label for="tags">Tags</label>
+      <input type=text class="form-control" [(ngModel)] = "tag" name = "tag"/>
+      <button class="btn btn-primary btn-sm" (click) = 'addTag()'>Add Tag</button>
+    </div>
+    <div class="added-tags" *ngIf="tags.length > 0">
+      <h5>Added Tags (click to remove Tag)</h5>
+      <button class="tag-button btn btn-sm btn-info" *ngFor="let tag of tags" (click)="removeTag(tag)">{{tag}}</button>
+    </div>
+    <h3>Question</h3>
+    <app-tiny-editor *ngIf="initialQuestionAvailable" [setBody]="initialQuestion" (onEditorContentChange) = "tinyResponce($event)"></app-tiny-editor>
+    <button (click)="editQuestion()" class="btn btn-sm btn-primary submit-btn" type="submit">Submit</button>
+  </form>
+</div>

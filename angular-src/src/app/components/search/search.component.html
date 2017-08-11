@@ -1,0 +1,27 @@
+<div class="blogs container">
+  <div class="page-header row">
+    <div class="col-sm-9">
+      <h2>Search results for - {{searchString}}</h2>
+    </div>
+    <div class="col-sm-3" style="text-align: right">
+      <button class="btn btn-primary btn-sm switch-btn" (click)="switchBtnFunc()"><i class="fa fa-search" aria-hidden="true"></i> {{switchBtnText}}</button>
+    </div>
+  </div>
+  <div *ngIf="search === 'blogs'">
+    <h3 style="text-align: center">Blogs</h3>
+    <div *ngIf="dataAvailable">
+      <app-blog-list [blogList] = "searchList" [blogCount]="searchCount" [currentPage]="currentPage"></app-blog-list>
+    </div>
+  </div>
+  <div *ngIf="search === 'questions'">
+    <h3 style="text-align: center" >Questions</h3>
+    <div *ngIf="dataAvailable">
+      <app-question-list [questionList] = "searchList" [questionCount]="searchCount" [currentPage]="currentPage"></app-question-list>
+    </div>
+  </div>
+  <div class="btn-controls">
+    <button  [ngClass]="prevBtn()" (click)="prevPage()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Prev</button>
+    <span>Page {{currentPage}}</span>
+    <button  [ngClass]="nextBtn()" (click)="nextPage()">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+  </div>
+</div>

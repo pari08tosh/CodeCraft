@@ -1,0 +1,40 @@
+form {
+  position: relative;
+  left: 10vw;
+  width: 60vw;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  margin: 5px 0px;
+  width: 60vw;
+}
+
+.added-tags {
+  width: 60vw;
+}
+
+.added-tags button {
+  margin: 5px;
+}
+
+textarea {
+  margin-top: 10px;
+  width: 50vw;
+  height: 50vh;
+}
+
+label {
+  font-size: 105%;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+#body {
+  height: 50vh;
+}

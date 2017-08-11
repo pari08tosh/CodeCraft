@@ -1,0 +1,25 @@
+.blog-div {
+  padding: 5px;
+  margin: 10px;
+  border-bottom: 1px solid rgba(125, 125, 125, 0.27);
+}
+
+.blog p {
+  margin: 30px 10px 30px 10px;
+  width: 80%;
+  font-size: 120%;
+}
+
+
+.col-sm-3 {
+  margin: 5px 0px;
+}
+
+.page-header {
+  border-bottom: 1px solid orange;
+}
+
+
+button {
+  margin: 0px 20px;
+}

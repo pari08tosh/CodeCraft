@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 backbtn">
+      <a class="btn btn-primary btn-sm" [routerLink] = "['/discuss']" [queryParams] = "{ pn: 0 }" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Discuss</a>
+    </div>
+    <div *ngIf="editable" class="col-xs-6 editbtn">
+      <a class="btn btn-primary btn-sm" [routerLink]="['/editQuestion']" [queryParams] = "{ id: question._id }"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+    </div>
+  </div>
+</div>
+
+<div class="blog container">
+  <div class="page-header">
+    <h4 [innerHtml] ="question.question | tinyInput"></h4>
+    <div class="row">
+      <div class="col-sm-4 questionData">
+        <h5>
+          Asked By - <a [routerLink] = "['/users', question.username]">{{question.username}}</a>
+        </h5>
+      </div>
+      <div class="col-sm-4 questionData">
+        <h5>
+          {{question.modifiedDate | date }}
+        </h5>
+      </div>
+      <div class="col-sm-4 questionData">
+        <h5>
+        Tags:-  <span *ngFor = "let tag of question.tags"><a [routerLink] = "['/discuss']" [queryParams] = "{ tag: tag, pn: 0 }">{{tag}}  </a></span>
+      </h5>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary btn-sm" (click)="writeAnswerFunc()"><i class="fa fa-pencil" aria-hidden="true"></i> Write an answer</button>
+</div>
+
+<div class="container">
+  <h4>Answers</h4>
+  <div *ngFor="let answer of answerList" class="answers">
+    <div class="row">
+      <div class="col-sm-4">
+        By - <a [routerLink]="['/users', answer.username ]">{{answer.username}}</a>
+      </div>
+      <div class="col-sm-4 editAnsBtn">
+        On - {{answer.modifiedDate | date}}
+      </div>
+      <div *ngIf="answer.username === this.username" class="col-sm-4 editAnsBtn">
+        <button class="btn btn-sm btn-primary" (click)="editAnswer(answer)"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+      </div>
+    </div>
+    <div [innerHtml]="answer.body | tinyInput" class="answer-body">
+    </div>
+  </div>
+</div>

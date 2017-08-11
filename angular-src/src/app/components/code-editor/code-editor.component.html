@@ -1,0 +1,11 @@
+<div ace-editor
+       [(text)]="editorText"
+       [mode]="editorMode"
+       [theme]="'textmate'"
+       [options]="options"
+       [readOnly]="readOnly"
+       [autoUpdateContent]="true"
+       [durationBeforeCallback]="300"
+       (textChanged)="onChange($event)"
+       style="min-height: 60vh; width:100%; overflow: auto; font-size: 120%;">
+</div>

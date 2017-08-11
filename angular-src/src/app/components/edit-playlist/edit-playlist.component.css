@@ -1,0 +1,25 @@
+form {
+  position: relative;
+  left: 10vw;
+  width: 60vw;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  margin: 5px 0px;
+  width: 60vw;
+}
+
+.delete-btn {
+  text-align: right;
+}
+
+.video {
+  border-bottom: 1px solid rgba(125, 125, 125, 0.27);
+  padding: 10px;
+  text-align: center;
+}
+
+.delete-playlist-btn {
+  text-align: right;
+}

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="delete-btn" style="text-align: right;">
+    <div class="btn btn-sm btn-danger" *ngIf="deleteCode" (click)="deleteCodeFunc()">{{deleteBtnText}}</div>
+  </div>
+  <div class="page-header">
+    <h3>{{submission.title}}</h3>
+    <div class="row">
+      <div class="col-sm-4">
+        <h5>Language: {{submission.language}}</h5>
+      </div>
+      <div class="col-sm-4">
+        <h5>By: <a [routerLink] = "['/users', submission.username ]">{{submission.username}}</a> </h5>
+      </div>
+      <div class="col-sm-4">
+        <h5>Submitted On: {{submission.date | date}}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="body" *ngIf="gotSubmission">
+      <h4>Code</h4>
+      <app-code-editor [language]="submission.language" [inputText]="submission.body" [readOnly]="true"></app-code-editor>
+  </div>
+</div>
+
+<div class="container comments-div">
+  <div class="page-header">
+    <h3>Comments</h3>
+  </div>
+  <div *ngIf="loggedIn" class="write-comment">
+    <form class="comment-form" (submit)="addComment()">
+      <div class="form-group">
+        <label for="commentBody">{{username}}</label>
+        <textarea class="form-control" [(ngModel)]="commentBody" name="commentBody" placeholder="Write a comment"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Comment</button>
+    </form>
+  </div>
+  <br />
+  <div *ngFor="let comment of commentList" class="comment-div">
+    <h5>By <a [routerLink] = "['/users', comment.username ]">{{comment.username}}</a></h5>
+    <p>
+      {{comment.body}}
+    </p>
+    <h6>{{comment.date | date}}</h6>
+  </div>
+</div>

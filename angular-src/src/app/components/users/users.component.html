@@ -1,0 +1,92 @@
+<div class="container">
+  <div *ngIf="editRights" class="row editBtn">
+    <button (click)="uploadImgFunc()" class="btn btn-primary btn-sm"><i class="fa fa-camera" aria-hidden="true"></i>
+ Upload Avatar</button>
+    <button (click)="editBtnFunc()" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+ Edit Profile</button>
+  </div>
+  <div class="contentManagerBtn" *ngIf="contentManagerBtn">
+    <button (click)="contentManagerBtnFunc()" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+ Make Content Manager</button>
+  </div>
+  <div *ngIf="uploadImg">
+    <form ngNoForm action="http://localhost:3000/users/addAvatar" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="username" [(ngModel)]="user.username" />
+      <div class="form-control imageUpload">
+        <input type="file" name="avatar"/>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-sm btn-primary avatar-btn">Update Avatar</button>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 avatar-div">
+      <img src="assets/images/avatars/{{user.avatarName}}" class="img-responsive img-thumbnail avatar" />
+    </div>
+    <div class="col-sm-9">
+      <div class="page-header">
+        <h2>{{user.name}}</h2>
+        <h5>
+          {{user.about}}
+        </h5>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <h5><span class="profile-key">Username:</span> {{user.username}}</h5>
+        </div>
+        <div class="col-sm-6">
+          <h5><span class="profile-key">Email:</span> {{user.email}}</h5>
+        </div>
+        <div class="col-sm-6">
+          <h5><span class="profile-key">Role:</span> {{user.role}}</h5>
+        </div>
+        <div class="col-sm-6">
+          <h5><span class="profile-key">Join Date:</span> {{user.joinDate | date}}</h5>
+        </div>
+        <div class="col-sm-6">
+          <h5><span class="profile-key">Batch:</span> {{user.batch}}</h5>
+        </div>
+        <div class="col-sm-6">
+          <h5><span class="profile-key">Branch:</span> {{user.branch}}</h5>
+        </div>
+      </div>
+      <div>
+        <h5 class="profile-key">Technologies and Frameworks</h5>
+        <p>
+          {{user.technologies}}
+        </p>
+      </div>
+    </div>
+  </div>
+    <h3 class="page-header">Profile Links</h3>
+  <div class="profileLinks">
+    <a *ngIf="user.facebookLink" href="{{user.facebookLink}}" target="_blank"><img src="assets/images/facebook.png" title="Facebook Profile"/></a>
+    <a *ngIf="user.linkedInLink" href="{{user.linkedInLink}}" target="_blank"><img src="assets/images/linkedIn.png" title="LinkedIn Profile"/></a>
+    <a *ngIf="user.stackoverflowLink" href="{{user.stackoverflowLink}}" target="_blank"><img src="assets/images/stackoverflow.png" title="Stackoverflow Profile"/></a>
+    <a *ngIf="user.githubLink" href="{{user.githubLink}}" target="_blank"><img src="assets/images/github.png" title="Github Profile" /></a>
+    <a *ngIf="user.spojLink" href="{{user.spojLink}}" target="_blank"><img src="assets/images/spoj.jpeg" title="Spoj Profile" /></a>
+    <a *ngIf="user.codechefLink" href="{{user.codechefLink}}" target="_blank"><img src="assets/images/codechef.jpeg" title="Codechef Profile" /></a>
+    <a *ngIf="user.hackerearthLink" href="{{user.hackerearthLink}}" target="_blank"><img src="assets/images/hackerearth.png" title="Hackerearth Profile" /></a>
+    <a *ngIf="user.codeforcesLink" href="{{user.codeforcesLink}}" target="_blank"><img src="assets/images/codeforces.png" title="Codeforces Profile"/></a>
+  </div>
+  <div class="control-buttons">
+    <button (click)="showBlogsFunc()" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> My Blogs</button>
+    <button (click)="showQuestionsFunc()" class="btn btn-primary"><i class="fa fa-question-circle" aria-hidden="true"></i> My Questions</button>
+  </div>
+  <div *ngIf="showBlogs">
+    <div class="page-header">
+        <h3>My Blogs</h3>
+    </div>
+    <div *ngIf="blogDataAvailable">
+      <app-blog-list [blogList] = "blogList" [currentPage]="0"></app-blog-list>
+    </div>
+  </div>
+  <div *ngIf="showQuestions">
+    <div class="page-header">
+        <h3>My Questions</h3>
+    </div>
+    <div *ngIf="questionDataAvailable">
+      <app-question-list [questionList] = "questionList" [currentPage]="0"></app-question-list>
+    </div>
+  </div>
+  </div>

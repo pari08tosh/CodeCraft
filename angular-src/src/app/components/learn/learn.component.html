@@ -1,0 +1,82 @@
+<div class="container-fliud">
+  <div class="row">
+    <div class='col-sm-3 sideNav'>
+      <div class="row">
+        <div class="col-xs-6">
+          <button *ngIf="backBtn" class="btn btn-primary btn-sm backBtn" (click)="backBtnFunc()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+        </div>
+        <div class="col-xs-6 addBtn">
+          <button *ngIf="addBtn" class="btn btn-primary btn-sm" (click)="addBtnFunc()"><i class="fa fa-plus" aria-hidden="true"></i> Add {{navBarHeading}}</button>
+        </div>
+      </div>
+      <h3 class="navBarHeading page-header">{{navBarHeading}}</h3>
+      <div class="list-group">
+        <a style="cursor: pointer;" *ngFor="let topic of navBarList" (click)="sideNavFunc(topic)" [ngClass]="activeFunc(topic)">
+          <h4>{{topic}}</h4>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-9 mainBody">
+
+        <div *ngIf="contentSwitchValue === 'cover'">
+          <div class="page-header mainBodyHeading">
+            <h2>Learn</h2>
+          </div>
+          <p class="main-description">
+            This section is the heart of the site where the Admin and Content Managers maintain and provide
+            comprehensive content on various topics. Topics include important languages, algorithms and data structures
+            and technologies in various fields of development. Content includes articles, ebooks and videos for an overall immersive
+            learning experience. Any help is welcome, as we need more content managers to add and improve quality of content.
+            You can request for topics and suggest resources to us via the contact us page.
+          </p>
+        </div>
+
+        <div *ngIf="contentSwitchValue === 'textContent'">
+          <div *ngIf="editBtn" class="editBtn">
+            <button (click)="editBtnFunc()" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+          </div>
+          <div class="page-header mainBodyHeading">
+            <h2>{{content.name}}</h2>
+          </div>
+          <div class="contentBody" [innerHTML]="content.body | tinyInput">
+          </div>
+        </div>
+
+        <div *ngIf="contentSwitchValue === 'ebooks'">
+          <div class="page-header mainBodyHeading">
+            <h2>Ebooks</h2>
+          </div>
+          <div *ngFor="let ebook of ebooksList" class="ebook">
+            <div class="row">
+              <div class="col-sm-4 coverImgDiv">
+                <a href="/assets/ebooks/{{ebook.ebookLink}}" target="_blank"><img class="coverImg img-responsive img-thumbnail" src="/assets/ebooks/{{ebook.imageLink}}" /></a>
+              </div>
+              <div class="col-sm-8 ebookBody">
+                <div *ngIf="deleteEbookBtn" class="delete-ebook-btn" style="text-align: right">
+                  <button (click) = "deleteEbookFunc(ebook._id)" class="btn btn-danger btn-sm">{{deleteEbookBtnText}}</button>
+                </div>
+                <h3>{{ebook.name}}</h3>
+                <p>
+                  {{ebook.body}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="contentSwitchValue === 'videos'">
+          <div class="page-header mainBodyHeading">
+            <h2>Playlists</h2>
+          </div>
+          <div *ngFor="let playlist of playlists" class="playlist">
+            <div *ngIf="editPlaylistBtn" class="editBtn">
+              <button (click)="editPlaylistBtnFunc(playlist.name)" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+            </div>
+            <h4><a [routerLink] = "['/playlist', topic, subtopic, playlist.name, '0']">{{playlist.name}}</a></h4>
+            <p>{{playlist.description}}</p>
+            <h5>{{playlist.videos.length}} Videos</h5>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

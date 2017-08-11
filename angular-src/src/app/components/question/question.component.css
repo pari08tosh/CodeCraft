@@ -1,0 +1,25 @@
+.page-header {
+  text-align: center;
+}
+
+.questionData {
+  text-align: center;
+}
+
+.editbtn {
+  text-align: right;
+}
+
+.answers {
+  margin: 20px 20px;
+  border-bottom: 1px solid rgba(125, 125, 125, 0.15);
+}
+
+.editAnsBtn {
+  text-align: right;
+}
+
+.answer-body {
+  font-size: 110%;
+  padding: 10px 0px;
+}
