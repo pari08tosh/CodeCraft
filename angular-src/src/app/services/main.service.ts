@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class MainService {
 
-  serverAddress: String = 'ServerAddress';
+  serverAddress: String = 'localhost:3000';
 
   constructor() { }
 

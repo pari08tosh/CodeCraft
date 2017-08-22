@@ -87,7 +87,10 @@ router.post('/authenticate', (req, res, next) => {
   let password = req.body.password;
 
   User.authUser(username, (err, user) => {
-    if (err) throw err;
+    if (err) {
+      console.log(`Error aunthenticating user
+        ${ err }`);
+    }
     if (!user) {
       return res.json({
         success: false,
@@ -95,7 +98,10 @@ router.post('/authenticate', (req, res, next) => {
       });
     }
     User.comparePassword(password, user.password, (err, isMatch) => {
-      if (err) throw err;
+      if (err) {
+        console.error(`Error in password comparision
+          ${ err }`);
+      }
       if (isMatch) {
         let token = jwt.sign(user, config.secret, {
           expiresIn: 608400,
@@ -203,7 +209,10 @@ router.post('/addAvatar',fileUpload, (req, res, next) => {
 router.post('/forgotPassword/username', (req, res, next) => {
   let username = req.body.username;
   User.forgotPassword(username, (err, user) => {
-    if (err) throw err;
+    if (err) {
+      console.error(`Error in forgot password
+        ${err}`);
+    }
     if (user) {
       res.json({
         success: true,
@@ -223,11 +232,16 @@ router.post('/forgotPassword/answer', (req, res, next) => {
   let answer = req.body.answer;
   let password = req.body.password;
   User.forgotPassword(username, (err, user) => {
-    if (err) throw err;
+    if (err) {
+      console.error(``);
+    }
     if(answer === user.securityAns) {
       user.password = password;
       User.updatePassword(user, (err, data) => {
-        if (err) throw err;
+        if (err) {
+          console.error(`Error in update password
+            ${err}`);
+        }
         res.json({
           success: true,
           msg: 'Password Changed',

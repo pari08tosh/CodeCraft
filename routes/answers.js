@@ -53,7 +53,7 @@ router.post('/addAnswer', passport.authenticate('jwt', { session: false }), (req
   const newNotification = new Notification({
     for: req.body.notificationFor,
     link: req.body.notificationLink,
-    message: req.body.notificationMessage,
+    message: `${ req.user.username } answered your question`,
   });
   Answer.insertAnswer(newAnswer, (err, question) => {
     if (err) {

@@ -4,6 +4,7 @@ import { DiscussService } from '../../services/discuss.service';
 import { BlogService } from '../../services/blog.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { MainService } from '../../services/main.service';
 
 @Component({
   selector: 'app-users',
@@ -25,6 +26,7 @@ export class UsersComponent implements OnInit {
   questionList: any =[];
   questionDataAvailable: Boolean;
   contentManagerBtn: Boolean;
+  serverAddress: String;
 
   constructor(
     private router: Router,
@@ -33,7 +35,10 @@ export class UsersComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private discussService: DiscussService,
     private flashMessagesService: FlashMessagesService,
-  ) { }
+    private mainService: MainService,
+  ) {
+    this.serverAddress = mainService.getServerAddress();
+  }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {

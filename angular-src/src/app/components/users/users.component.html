@@ -10,7 +10,7 @@
  Make Content Manager</button>
   </div>
   <div *ngIf="uploadImg">
-    <form ngNoForm action="http://localhost:3000/users/addAvatar" method="post" enctype="multipart/form-data">
+    <form ngNoForm action="http://{{ serverAddress }}/users/addAvatar" method="post" enctype="multipart/form-data">
     <input type="hidden" name="username" [(ngModel)]="user.username" />
       <div class="form-control imageUpload">
         <input type="file" name="avatar"/>

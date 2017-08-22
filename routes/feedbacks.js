@@ -26,6 +26,7 @@ router.post('/addFeedback', passport.authenticate('jwt', { session: false }), (r
         msg: `Something went wrong, please try again.`,
       });
     } else {
+      console.log(`**New Feedback**`);
       res.json({
         success: true,
         msg: `Thank you for your message. We will look into it shortly`,

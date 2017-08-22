@@ -115,7 +115,10 @@ module.exports.getUserByUsername = function(username, callback){
 module.exports.addUser = function(newUser, callback){
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(newUser.password, salt, (err, hash) => {
-      if(err) throw err;
+      if(err) {
+        console.error(`Error Generating Salt
+          ${err}`);
+      }
       newUser.password = hash;
       newUser.save(callback);
     });
@@ -125,7 +128,10 @@ module.exports.addUser = function(newUser, callback){
 module.exports.updatePassword = function(user, callback) {
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(user.password, salt, (err, hash) => {
-      if(err) throw err;
+      if(err) {
+        console.error(`Error updating password
+          ${err}`);
+      }
       user.password = hash;
       User.update({ username: user.username }, { $set: { password: user.password }}, callback);
     });
@@ -161,7 +167,10 @@ module.exports.updateAvatar = function(username, avatarName, callback) {
 
 module.exports.comparePassword = function(enteredPassword, hash, callback) {
   bcrypt.compare(enteredPassword, hash, (err, isMatch) => {
-    if (err) throw err;
+    if (err) {
+      console.error(`Error comparing password
+        ${err}`);
+    }
     callback(null, isMatch);
   });
 };

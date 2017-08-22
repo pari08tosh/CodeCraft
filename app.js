@@ -49,7 +49,14 @@ const port = serverConfig.port;
 app.use(cors());
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+let accessCount = 0;
+app.use((req, res, next) => {
+  if (req.originalUrl === '/') {
+    ++accessCount;
+    console.log(`Server Hit Number ${ accessCount } from ${ req.connection.remoteAddress}`);
+  }
+  next();
+}, express.static(path.join(__dirname, 'public')));
 
 // Body Parser Middleware
 app.use(bodyParser.json());
@@ -79,11 +86,10 @@ app.use('/imageUploads', imageUploads);
 app.use('/codes', codes);
 
 // Index Route
-let accessCount = 0;
 app.get('*', (req, res, next) => {
   //** when server is active
   ++accessCount;
-  console.log(`Server Hit Number ${ accessCount }`);
+  console.log(`Server Hit Number ${ accessCount } from ${ req.connection.remoteAddress}`);
    res.sendFile(path.join(__dirname + '/public/index.html'));
 
   // When server is down
