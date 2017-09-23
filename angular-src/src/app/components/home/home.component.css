@@ -62,6 +62,7 @@
   text-align: center;
   margin: 50px 50px 0px 50px;
 }
+
 .editor-section {
   text-align: center;
   margin: 50px;
@@ -193,4 +194,39 @@ p {
   height: 50px;
   width: 50px;
   margin: 0px 20px;
+}
+
+.iet-content h3 {
+  color: #d34615;
+  text-align: center;
+}
+
+.iet-content {
+  text-align: center;
+  margin: 50px 50px 0px 50px;
+}
+
+.iet-content img {
+  height: 250px;
+  width: auto;
+  margin: 0px auto;
+}
+
+.developer-name {
+  text-align: left;
+  position: relative;
+  top: 5px;
+}
+
+.footer {
+  margin: 30px 5px 5px 5px;
+}
+
+.club-logo {
+  text-align: right;
+}
+
+.club-logo img {
+  height: 50px;
+  width: auto;
 }

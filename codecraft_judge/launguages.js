@@ -12,12 +12,6 @@ const runOptions = {
   killSignal: 'STOP',
 };
 
-function replaceClass(code, fileName, callback) {
-  var regex = /TestClass/g;
-
-  callback(code);
-}
-
 // Add new launguages below as per the given template.
 module.exports = {
   /**

@@ -64,6 +64,24 @@
           </div>
         </div>
 
+        <div *ngIf="contentSwitchValue === 'studyFiles'">
+          <div class="page-header mainBodyHeading">
+            <h2>Study Files</h2>
+          </div>
+          <div class="list-group">
+            <div *ngFor="let file of filesList">
+              <div *ngIf="deleteFileBtn" class="delete-file-btn" style="text-align: right; z-index: 10;">
+                <button (click) = "deleteStudyFileFunc(file._id)" class="btn btn-danger btn-sm">{{deleteFileBtnText}}</button>
+              </div>
+              <a href="/assets/studyFiles/{{file.fileLink}}" target="_blank">
+                <div class="file">
+                  <p class="file-name">{{file.name}}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div *ngIf="contentSwitchValue === 'videos'">
           <div class="page-header mainBodyHeading">
             <h2>Playlists</h2>

@@ -64,6 +64,7 @@ import { AceEditorModule } from 'ng2-ace-editor'
 import { CodeService } from './services/code.service';
 import { SubmissionComponent } from './components/submission/submission.component';
 import { SearchCodeComponent } from './components/search-code/search-code.component';
+import { AddStudyFileComponent } from './components/add-study-file/add-study-file.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -110,6 +111,9 @@ const appRoutes: Routes = [
   { path: 'code', component: CodeComponent, canActivate: [AuthguardService] },
   { path: 'submission/:id', component: SubmissionComponent, canActivate: [AuthguardService] },
   { path: 'searchCodes', component: SearchCodeComponent, canActivate: [AuthguardService] },
+  { path: 'addStudyFile', component: AddStudyFileComponent, canActivate: [ContentGuardService] },
+
+
   // include all routes before this line
   { path: '404', component: UrlErrorComponent },
   { path: '**', redirectTo: '/404' },
@@ -159,6 +163,7 @@ const appRoutes: Routes = [
     CodeComponent,
     SubmissionComponent,
     SearchCodeComponent,
+    AddStudyFileComponent,
   ],
   imports: [
     BrowserModule,
@@ -186,8 +191,9 @@ const appRoutes: Routes = [
     ContentGuardService,
     FeedbackService,
     NewsFeedService,
-    CodeService
+    CodeService,
    ],
   bootstrap: [ AppComponent ]
 })
+
 export class AppModule { }

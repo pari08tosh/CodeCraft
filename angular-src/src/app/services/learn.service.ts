@@ -155,7 +155,23 @@ export class LearnService {
     headers.append('Content-Type', 'application/json');
     this.token = localStorage.getItem('id_token');
     headers.append('Authorization', this.token);
-    return this.http.post('http://' + this.serverAddress + '/ebooks/deleteEbook', ebook, {headers: headers})
+    return this.http.post('http://' + this.serverAddress + '/studyFiles/deleteEbook', ebook, {headers: headers})
+      .map(res => res.json());
+  }
+
+  getStudyFiles(file) {
+    let headers = new Headers;
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://' + this.serverAddress + '/studyFiles/getStudyFilesForContent', file, {headers: headers})
+      .map(res => res.json());
+  }
+
+  deleteStudyFile(file) {
+    let headers = new Headers;
+    headers.append('Content-Type', 'application/json');
+    this.token = localStorage.getItem('id_token');
+    headers.append('Authorization', this.token);
+    return this.http.post('http://' + this.serverAddress + '/studyFiles/deleteStudyFile', file, {headers: headers})
       .map(res => res.json());
   }
 

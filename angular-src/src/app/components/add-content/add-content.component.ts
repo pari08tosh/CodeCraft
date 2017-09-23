@@ -17,6 +17,7 @@ export class AddContentComponent implements OnInit {
   type: String;
   addEbook: Boolean;
   addVideo: Boolean;
+  addFile: Boolean;
 
   constructor(
     private router: Router,
@@ -37,6 +38,7 @@ export class AddContentComponent implements OnInit {
         } else {
           this.addEbook = true;
           this.addVideo = true;
+          this.addFile = true;
           this.type = 'Section';
         }
       }
@@ -123,6 +125,10 @@ export class AddContentComponent implements OnInit {
 
   addEbookFunc() {
     this.router.navigate(['/addEbook'], { queryParams: { subtopic: this.subtopic, topic: this.topic }});
+  }
+
+  addStudyFileFunc() {
+    this.router.navigate(['/addStudyFile'], { queryParams: { subtopic: this.subtopic, topic: this.topic }});
   }
 
   addVideoFunc() {

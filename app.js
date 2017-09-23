@@ -26,6 +26,7 @@ const newsFeeds = require('./routes/newsFeeds');
 const sources = require('./routes/sources');
 const imageUploads = require('./routes/imageUploads');
 const codes = require('./routes/codes');
+const studyFiles  = require('./routes/studyFiles');
 
 // Connect To Database
 mongoose.connect(config.database);
@@ -84,6 +85,7 @@ app.use('/newsFeeds', newsFeeds);
 app.use('/sources', sources);
 app.use('/imageUploads', imageUploads);
 app.use('/codes', codes);
+app.use('/studyFiles', studyFiles);
 
 // Index Route
 app.get('*', (req, res, next) => {

@@ -4,7 +4,8 @@ import {
   EventEmitter,
   OnDestroy,
   Input,
-  Output
+  Output,
+  HostListener
 } from '@angular/core';
 
 import { MainService } from '../../services/main.service';
@@ -39,6 +40,10 @@ export class TinyEditorComponent implements AfterViewInit, OnDestroy {
   @Output() onEditorContentChange = new EventEmitter();
   @Input() setBody: String;
   serverAddress: String;
+  @HostListener('window:unload', [ '$event' ])
+  beforeUnloadHandler(event) {
+    tinymce.remove(this.editor);
+  }
 
   constructor(
     private mainService: MainService,

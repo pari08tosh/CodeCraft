@@ -96,3 +96,19 @@ img {
   font-size: 110%;
   margin: 10px;
 }
+
+.file {
+  text-decoration: none;
+  color: #000;
+  padding: 10px 20px;
+  font-size: 120%;
+  border-bottom: 1px solid rgba(142, 142, 142, 0.14);
+  cursor: pointer;
+  transition: all .3s;
+  border-radius: 5px;
+}
+
+.file:hover {
+  color: #d34615;
+  background-color: rgba(142, 142, 142, 0.14);
+}

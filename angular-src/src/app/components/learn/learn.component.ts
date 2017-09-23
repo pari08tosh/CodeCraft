@@ -22,9 +22,12 @@ export class LearnComponent implements OnInit {
   addBtn: Boolean;
   content: any = [];
   ebooksList: any = [];
+  filesList: any = [];
   contentSwitchValue: String = 'ebooks'; // Being Used to switch view for cover, text sections, ebooks and videos.
   deleteEbookBtn: Boolean;
+  deleteFileBtn: Boolean;
   deleteEbookBtnText: String;
+  deleteFileBtnText: String;
   playlists: any = [];
   test: String = '0';
   editPlaylistBtn: Boolean;
@@ -40,11 +43,13 @@ export class LearnComponent implements OnInit {
 
   ngOnInit() {
       this.deleteEbookBtnText = "Delete Ebook";
+      this.deleteFileBtnText = 'Delete File';
       if (this.authService.loggedIn()) {
         if (AuthService.userRole === 'Admin' || AuthService.userRole === 'Content Manager') {
           this.editBtn = true;
           this.addBtn = true;
           this.deleteEbookBtn = true;
+          this.deleteFileBtn = true;
           this.editPlaylistBtn = true;
           }
         }
@@ -123,6 +128,11 @@ export class LearnComponent implements OnInit {
                 topic: this.topic,
               }
 
+              const file = {
+                subtopic: this.subtopic,
+                topic: this.topic,
+              }
+
               const playlist = {
                 subtopic: this.subtopic,
                 topic: this.topic,
@@ -147,6 +157,18 @@ export class LearnComponent implements OnInit {
                         err => {
                           this.learnService.handleError(err);
                       });
+
+                      this.learnService.getStudyFiles(file).subscribe(
+                        data => {
+                          this.filesList = data;
+                          if (data.length > 0) {
+                            this.navBarList.push('Study Files');
+                          }
+                        },
+                        err => {
+                          this.learnService.handleError(err);
+                      });
+
                       this.learnService.getPlaylistBySubtopic(playlist).subscribe(
                         data => {
                           this.playlists = data;
@@ -194,6 +216,11 @@ export class LearnComponent implements OnInit {
                 topic: this.topic,
               }
 
+              const file = {
+                subtopic: this.subtopic,
+                topic: this.topic,
+              }
+
               this.learnService.getAllSectionForSubtopic(subtopic).subscribe(
                 data => {
                   for(let ii = 0; ii < data.length; ii++) {
@@ -205,6 +232,19 @@ export class LearnComponent implements OnInit {
                       this.ebooksList = data;
                       if (data.length > 0) {
                         this.navBarList.push('Ebooks');
+                      }
+                    },
+                    err => {
+                      this.learnService.handleError(err);
+                  });
+
+                  // get study files
+
+                  this.learnService.getStudyFiles(file).subscribe(
+                    data => {
+                      this.filesList = data;
+                      if (data.length > 0) {
+                        this.navBarList.push('Study Files');
                       }
                     },
                     err => {
@@ -235,13 +275,17 @@ export class LearnComponent implements OnInit {
                 if (this.section === "Videos") {
                   this.contentSwitchValue = "videos";
                 } else {
-                  this.learnService.getSection(section).subscribe(
-                    data => {
-                      this.content = data;
-                    },
-                    err => {
-                      this.learnService.handleError(err);
-                  });
+                  if ( this.section === 'Study Files') {
+                    this.contentSwitchValue = 'studyFiles';
+                  } else {
+                    this.learnService.getSection(section).subscribe(
+                      data => {
+                        this.content = data;
+                      },
+                      err => {
+                        this.learnService.handleError(err);
+                    });
+                  }
                 }
               }
             }
@@ -319,13 +363,32 @@ export class LearnComponent implements OnInit {
           this.flashMessagesService.show(data.msg, { cssClass: 'alert-success', timeout: 1500 });
           this.router.navigate(['/learn', this.topic, this.subtopic]);
         } else {
-            this.flashMessagesService.show(data.msg, { cssClass: 'alert-danger', timeout: 1500 });
+            this.flashMessagesService.show(data.msg, { cssClass: 'alert-danger', timeout: 2000 });
         }
       },
       err => {
         this.learnService.handleError(err);
       });
     }
+
+    deleteStudyFileFunc(id) {
+      const file = {
+        id: id,
+      }
+
+      this.learnService.deleteStudyFile(file).subscribe(
+        data => {
+          if(data.success) {
+            this.flashMessagesService.show(data.msg, { cssClass: 'alert-success', timeout: 1500 });
+            this.router.navigate(['/learn', this.topic, this.subtopic]);
+          } else {
+              this.flashMessagesService.show(data.msg, { cssClass: 'alert-danger', timeout: 2000 });
+          }
+        },
+        err => {
+          this.learnService.handleError(err);
+        });
+      }
 
     editPlaylistBtnFunc(name) {
       this.router.navigate(['/editPlaylist', this.topic, this.subtopic, name]);
